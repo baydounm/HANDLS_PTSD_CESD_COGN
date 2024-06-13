@@ -1,0 +1,792 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}E:\16GBBACKUPUSB\BACKUP_USB_SEPTEMBER2014\May Baydoun_folder\HANDLS_PAPER67_PTSD_COGN\OUTPUT\TABLE_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}12 Jun 2024, 15:57:48
+{txt}
+{com}. 
+. use finaldata_imputed_FINAL,clear
+{txt}
+{com}. 
+. 
+. //////////////////////////TABLE 1: STUDY CHARACTERISTICS OVERALL AND BY PTSD LOAD TERTILE/////////////////////////////////////
+> 
+. *****MAIN  TABLE ****
+. mi estimate: mean acasiPTSD if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}acasiPTSD {c |}{col 14}{res}{space 2} 12.45537{col 26}{space 2} .3343704{col 37}{space 5} 11.79946{col 51}{space 3} 13.11128
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. 
+. mi estimate: prop Sex  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 9}Sex {c |}
+{space 6}Women  {c |}{col 14}{res}{space 2} .5662483{col 26}{space 2} .0130873{col 37}{space 5} .5405759{col 51}{space 3} .5919206
+{txt}{space 8}Men  {c |}{col 14}{res}{space 2} .4337517{col 26}{space 2} .0130873{col 37}{space 5} .4080794{col 51}{space 3} .4594241
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean Age0  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}Age0 {c |}{col 14}{res}{space 2} 47.37887{col 26}{space 2} .2404299{col 37}{space 5} 46.90724{col 51}{space 3}  47.8505
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop Race  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}Race {c |}
+{space 6}White  {c |}{col 14}{res}{space 2} .4748954{col 26}{space 2}  .013187{col 37}{space 5} .4490274{col 51}{space 3} .5007634
+{txt}{space 6}AfrAm  {c |}{col 14}{res}{space 2} .5251046{col 26}{space 2}  .013187{col 37}{space 5} .4992366{col 51}{space 3} .5509726
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop PovStat  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 5}PovStat {c |}
+{space 6}Above  {c |}{col 14}{res}{space 2}  .583682{col 26}{space 2} .0130175{col 37}{space 5} .5581467{col 51}{space 3} .6092174
+{txt}{space 6}Below  {c |}{col 14}{res}{space 2}  .416318{col 26}{space 2} .0130175{col 37}{space 5} .3907826{col 51}{space 3} .4418533
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop edubrg1  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0196
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0194
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,242.47
+{txt}{col 35}        avg{col 51}= {res}  1,242.47
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,242.47
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 5}edubrg1 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .9410042{col 26}{space 2} .0062827{col 37}{space 5} .9286784{col 51}{space 3}   .95333
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .0589958{col 26}{space 2} .0062827{col 37}{space 5}   .04667{col 51}{space 3} .0713216
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop edubrg3  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0156
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0155
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,301.05
+{txt}{col 35}        avg{col 51}= {res}  1,301.05
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,301.05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 5}edubrg3 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .6384937{col 26}{space 2} .0127855{col 37}{space 5} .6134112{col 51}{space 3} .6635763
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .3615063{col 26}{space 2} .0127855{col 37}{space 5} .3364237{col 51}{space 3} .3865888
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop currdrugs if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.1948
+{txt}{col 35}Largest FMI{col 51}= {res}    0.1741
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    133.69
+{txt}{col 35}        avg{col 51}= {res}    133.69
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    133.69
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}currdrugs {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .7995816{col 26}{space 2} .0115545{col 37}{space 5} .7767282{col 51}{space 3}  .822435
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2004184{col 26}{space 2} .0115545{col 37}{space 5}  .177565{col 51}{space 3} .2232718
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop smokebr if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.1232
+{txt}{col 35}Largest FMI{col 51}= {res}    0.1151
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    263.65
+{txt}{col 35}        avg{col 51}= {res}    263.65
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    263.65
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 5}smokebr {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .5058577{col 26}{space 2} .0139921{col 37}{space 5} .4783073{col 51}{space 3} .5334082
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .4941423{col 26}{space 2} .0139921{col 37}{space 5} .4665918{col 51}{space 3} .5216927
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean BMI if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 9}BMI {c |}{col 14}{res}{space 2} 29.35298{col 26}{space 2} .1995465{col 37}{space 5} 28.96154{col 51}{space 3} 29.74441
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean comorbid if sample_final==1 
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0275
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0272
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,114.23
+{txt}{col 35}        avg{col 51}= {res}  1,114.23
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,114.23
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 4}comorbid {c |}{col 14}{res}{space 2} 4.239191{col 26}{space 2} .0358489{col 37}{space 5} 4.168852{col 51}{space 3}  4.30953
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop SRHg1 if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}SRHg1 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .7552301{col 26}{space 2} .0113539{col 37}{space 5} .7329581{col 51}{space 3} .7775021
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2447699{col 26}{space 2} .0113539{col 37}{space 5} .2224979{col 51}{space 3} .2670419
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop SRHg3 if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}SRHg3 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .6290098{col 26}{space 2} .0127566{col 37}{space 5} .6039861{col 51}{space 3} .6540334
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .3709902{col 26}{space 2} .0127566{col 37}{space 5} .3459666{col 51}{space 3} .3960139
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean hei2010_total_score if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.4680
+{txt}{col 35}Largest FMI{col 51}= {res}    0.3513
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}     37.83
+{txt}{col 35}        avg{col 51}= {res}     37.83
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}     37.83
+
+{txt}{hline 20}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 21}{c |}       Mean{col 33}   Std. err.{col 45}     [95% con{col 58}f. interval]
+{hline 20}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+hei2010_total_score {c |}{col 21}{res}{space 2}  42.5207{col 33}{space 2} .3712191{col 44}{space 5}  41.7691{col 58}{space 3} 43.27231
+{txt}{hline 20}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop dxHTN if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0556
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0540
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    698.85
+{txt}{col 35}        avg{col 51}= {res}    698.85
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    698.85
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}dxHTN {c |}
+{space 9}No  {c |}{col 14}{res}{space 2}  .595537{col 26}{space 2} .0133156{col 37}{space 5} .5693936{col 51}{space 3} .6216803
+{txt}{space 8}Yes  {c |}{col 14}{res}{space 2}  .404463{col 26}{space 2} .0133156{col 37}{space 5} .3783197{col 51}{space 3} .4306064
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop dxDiabetesg3 if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0412
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0404
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    893.03
+{txt}{col 35}        avg{col 51}= {res}    893.03
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    893.03
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+dxDiabetesg3 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .8637378{col 26}{space 2} .0092443{col 37}{space 5} .8455947{col 51}{space 3} .8818809
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .1362622{col 26}{space 2} .0092443{col 37}{space 5} .1181191{col 51}{space 3} .1544053
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop dxDiabetesg2 if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0073
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0073
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,394.55
+{txt}{col 35}        avg{col 51}= {res}  1,394.55
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,394.55
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+dxDiabetesg2 {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .8355649{col 26}{space 2} .0098241{col 37}{space 5} .8162932{col 51}{space 3} .8548365
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .1644351{col 26}{space 2} .0098241{col 37}{space 5} .1451635{col 51}{space 3} .1837068
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop CVhighChol if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0310
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0305
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,056.80
+{txt}{col 35}        avg{col 51}= {res}  1,056.80
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,056.80
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 2}CVhighChol {c |}
+{space 9}No  {c |}{col 14}{res}{space 2} .7627615{col 26}{space 2}  .011406{col 37}{space 5} .7403804{col 51}{space 3} .7851426
+{txt}{space 8}Yes  {c |}{col 14}{res}{space 2} .2372385{col 26}{space 2}  .011406{col 37}{space 5} .2148574{col 51}{space 3} .2596196
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop cvdbr  if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.2093
+{txt}{col 35}Largest FMI{col 51}= {res}    0.1854
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    120.00
+{txt}{col 35}        avg{col 51}= {res}    120.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    120.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 37}             N{col 51}ormal
+{col 14}{c |} Proportion{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}cvdbr {c |}
+{space 10}0  {c |}{col 14}{res}{space 2}   .83947{col 26}{space 2} .0106598{col 37}{space 5} .8183643{col 51}{space 3} .8605757
+{txt}{space 10}1  {c |}{col 14}{res}{space 2}   .16053{col 26}{space 2} .0106598{col 37}{space 5} .1394243{col 51}{space 3} .1816357
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: prop rxCholesterolemia if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Proportion estimation{col 35}Number of obs{col 51}= {res}     1,356
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1355
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,353.00
+{txt}{col 35}        avg{col 51}= {res}  1,353.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,353.00
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 19}{c |}{col 42}             N{col 56}ormal
+{col 19}{c |} Proportion{col 31}   Std. err.{col 43}     [95% con{col 56}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+rxCholesterolemia {c |}
+{space 14}No  {c |}{col 19}{res}{space 2} .8827434{col 31}{space 2} .0087369{col 42}{space 5} .8656041{col 56}{space 3} .8998827
+{txt}{space 13}Yes  {c |}{col 19}{res}{space 2} .1172566{col 31}{space 2} .0087369{col 42}{space 5} .1001173{col 56}{space 3} .1343959
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean allostatic_load if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.1896
+{txt}{col 35}Largest FMI{col 51}= {res}    0.1701
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    139.22
+{txt}{col 35}        avg{col 51}= {res}    139.22
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    139.22
+
+{txt}{hline 16}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 17}{c |}       Mean{col 29}   Std. err.{col 41}     [95% con{col 54}f. interval]
+{hline 16}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+allostatic_load {c |}{col 17}{res}{space 2} 1.807361{col 29}{space 2} .0367276{col 40}{space 5} 1.734745{col 54}{space 3} 1.879977
+{txt}{hline 16}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean Energy_mean if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.2361
+{txt}{col 35}Largest FMI{col 51}= {res}    0.2056
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}    100.16
+{txt}{col 35}        avg{col 51}= {res}    100.16
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}    100.16
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 1}Energy_mean {c |}{col 14}{res}{space 2} 2043.651{col 26}{space 2} 28.46268{col 37}{space 5} 1987.183{col 51}{space 3} 2100.119
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean WRATtotal if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0065
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0064
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,401.37
+{txt}{col 35}        avg{col 51}= {res}  1,401.37
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,401.37
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}WRATtotal {c |}{col 14}{res}{space 2} 42.80948{col 26}{space 2} .2095363{col 37}{space 5} 42.39845{col 51}{space 3} 43.22052
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. 
+. mi estimate: mean CES if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 9}CES {c |}{col 14}{res}{space 2} 14.73082{col 26}{space 2} .2999198{col 37}{space 5} 14.14249{col 51}{space 3} 15.31915
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CES_DA if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CES_DA {c |}{col 14}{res}{space 2} 4.551604{col 26}{space 2}  .128941{col 37}{space 5}  4.29867{col 51}{space 3} 4.804538
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CES_IP if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CES_IP {c |}{col 14}{res}{space 2}  1.01046{col 26}{space 2} .0358759{col 37}{space 5} .9400853{col 51}{space 3} 1.080835
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CES_SC if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CES_SC {c |}{col 14}{res}{space 2} 6.702929{col 26}{space 2} .1163444{col 37}{space 5} 6.474705{col 51}{space 3} 6.931153
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CES_WB if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CES_WB {c |}{col 14}{res}{space 2}  9.53417{col 26}{space 2} .0701309{col 37}{space 5}   9.3966{col 51}{space 3} 9.671741
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. 
+. mi estimate: mean MMStotnorm if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,422
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1421
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,419.00
+{txt}{col 35}        avg{col 51}= {res}  1,419.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,419.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 2}MMStotnorm {c |}{col 14}{res}{space 2}  76.8123{col 26}{space 2} .4184454{col 37}{space 5} 75.99146{col 51}{space 3} 77.63314
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean cvltca if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,184
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1183
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,181.01
+{txt}{col 35}        avg{col 51}= {res}  1,181.01
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,181.01
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}cvltca {c |}{col 14}{res}{space 2} 24.59544{col 26}{space 2} .1969828{col 37}{space 5} 24.20896{col 51}{space 3} 24.98191
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CVLfrl if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,164
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1163
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,161.01
+{txt}{col 35}        avg{col 51}= {res}  1,161.01
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,161.01
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CVLfrl {c |}{col 14}{res}{space 2}  7.32732{col 26}{space 2}    .0913{col 37}{space 5} 7.148188{col 51}{space 3} 7.506451
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean BVRrot if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,431
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1430
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,428.00
+{txt}{col 35}        avg{col 51}= {res}  1,428.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,428.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}BVRrot {c |}{col 14}{res}{space 2}  .802935{col 26}{space 2} .0258029{col 37}{space 5} .7523193{col 51}{space 3} .8535507
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean Attention if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,255
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1254
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,252.00
+{txt}{col 35}        avg{col 51}= {res}  1,252.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,252.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}Attention {c |}{col 14}{res}{space 2} 6.721116{col 26}{space 2} .0625043{col 37}{space 5} 6.598491{col 51}{space 3}  6.84374
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean FluencyWord if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,425
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1424
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,422.00
+{txt}{col 35}        avg{col 51}= {res}  1,422.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,422.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 1}FluencyWord {c |}{col 14}{res}{space 2} 19.12351{col 26}{space 2} .1461077{col 37}{space 5}  18.8369{col 51}{space 3} 19.41012
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean DigitSpanFwd if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,403
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1402
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,400.00
+{txt}{col 35}        avg{col 51}= {res}  1,400.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,400.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+DigitSpanFwd {c |}{col 14}{res}{space 2} 7.418389{col 26}{space 2} .0591732{col 37}{space 5} 7.302311{col 51}{space 3} 7.534467
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean DigitSpanBck if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,394
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1393
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,391.00
+{txt}{col 35}        avg{col 51}= {res}  1,391.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,391.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+DigitSpanBck {c |}{col 14}{res}{space 2} 5.696557{col 26}{space 2} .0593355{col 37}{space 5}  5.58016{col 51}{space 3} 5.812953
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean clock_command if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,428
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1427
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,425.00
+{txt}{col 35}        avg{col 51}= {res}  1,425.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,425.00
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 15}{c |}       Mean{col 27}   Std. err.{col 39}     [95% con{col 52}f. interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+clock_command {c |}{col 15}{res}{space 2} 8.813725{col 27}{space 2} .0321819{col 38}{space 5} 8.750597{col 52}{space 3} 8.876854
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean LnTrailsAtestSec if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,419
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1418
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,416.00
+{txt}{col 35}        avg{col 51}= {res}  1,416.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,416.00
+
+{txt}{hline 17}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 18}{c |}       Mean{col 30}   Std. err.{col 42}     [95% con{col 55}f. interval]
+{hline 17}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+LnTrailsAtestSec {c |}{col 18}{res}{space 2} 3.470434{col 30}{space 2} .0113746{col 41}{space 5} 3.448121{col 55}{space 3} 3.492747
+{txt}{hline 17}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean LnTrailsBtestSec if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,417
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1416
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,414.00
+{txt}{col 35}        avg{col 51}= {res}  1,414.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,414.00
+
+{txt}{hline 17}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 18}{c |}       Mean{col 30}   Std. err.{col 42}     [95% con{col 55}f. interval]
+{hline 17}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+LnTrailsBtestSec {c |}{col 18}{res}{space 2} 4.628325{col 30}{space 2} .0201515{col 41}{space 5} 4.588795{col 55}{space 3} 4.667855
+{txt}{hline 17}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean CrdRot if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,122
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1121
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,119.01
+{txt}{col 35}        avg{col 51}= {res}  1,119.01
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,119.01
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}CrdRot {c |}{col 14}{res}{space 2} 35.86007{col 26}{space 2}   .55347{col 37}{space 5} 34.77412{col 51}{space 3} 36.94603
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. mi estimate: mean identpic if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,224
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1223
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,221.00
+{txt}{col 35}        avg{col 51}= {res}  1,221.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,221.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 1}identpictot {c |}{col 14}{res}{space 2} 23.80045{col 26}{space 2} .1913128{col 37}{space 5} 23.42511{col 51}{space 3} 24.17579
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}.  
+. mi estimate: mean IMTmean if sample_final==1
+{res}
+{txt}Multiple-imputation estimates{col 35}Imputations{col 51}= {res}         5
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}     1,434
+{txt}{col 35}Average RVI{col 51}= {res}    0.0000
+{txt}{col 35}Largest FMI{col 51}= {res}    0.0000
+{txt}{col 35}Complete DF{col 51}= {res}      1433
+{txt}DF adjustment:{ralign 15: {res:Small sample}}{col 35}DF:     min{col 51}= {res}  1,431.00
+{txt}{col 35}        avg{col 51}= {res}  1,431.00
+{txt}Within VCE type: {ralign 12:{res:Analytic}}{col 35}        max{col 51}= {res}  1,431.00
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. err.{col 38}     [95% con{col 51}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 5}IMTmean {c |}{col 14}{res}{space 2} .0690446{col 26}{space 2} .0003417{col 37}{space 5} .0683743{col 51}{space 3}  .069715
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. save, replace
+{txt}{p 0 4 2}
+file {bf}
+finaldata_imputed_FINAL.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. 
+. capture log close
+{smcl}
+{com}{sf}{ul off}

@@ -1,0 +1,147 @@
+
+R version 4.3.1 (2023-06-16) -- "Beagle Scouts"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd ("/Users/georgescum2/Documents/HEATMAP_DATA")
+> require(graphics)
+> require(grDevices)
+> if(!require('gplots')) {
++ install.packages('gplots')
++ library('gplots') }
+Loading required package: gplots
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+> A1 <- read.csv("PTSDCES.csv") ; A1 ;rownames(A1) = A1[,1] ; A1 = A1[,-1]
+   COGNITION  GROUP.1  GROUP.2  GROUP.3
+1       MMSE 0.543161 0.575710 0.680543
+2     CVLTCA 0.540022 0.581764 0.716512
+3     CVLFRL 0.536495 0.595323 0.703680
+4        BVR 0.545591 0.579110 0.683618
+5      ATTEN 0.533530 0.580227 0.693052
+6         FW 0.546144 0.579110 0.684532
+7        DSF 0.544467 0.581183 0.685981
+8        DSB 0.542852 0.580938 0.688515
+9        CDT 0.545824 0.576827 0.683148
+10      TATS 0.545545 0.581999 0.687310
+11      TBTS 0.545545 0.581999 0.688926
+12        CR 0.537485 0.607265 0.678389
+13       IDP 0.540386 0.612386 0.693422
+> A2 <- read.csv("PTSDCOGN.csv") ; A2 ;rownames(A2) = A2[,1] ; A2 = A2[,-1]
+   COGNITION   GROUP.1      GROUP.2   GROUP.3
+1       MMSE  0.030055    -0.066522 -0.072644
+2     CVLTCA  0.036062    -0.136841 -0.050517
+3     CVLFRL  0.005144    -0.058758  0.010037
+4        BVR  0.032738     0.112700  0.047734
+5      ATTEN  0.020718     0.049165 -0.023687
+6         FW  0.008905    -0.023813 -0.003690
+7        DSF -0.067071    -0.096393 -0.103071
+8        DSB -0.037326     0.029587  0.010421
+9        CDT -0.013281    -0.119107 -0.016624
+10      TATS -0.022764     0.065691  0.092897
+11      TBTS  0.015989 23529.500000  0.001321
+12        CR -0.368912    -0.209769 -0.164327
+13       IDP -0.093334    -0.040183 -0.010458
+> A3 <- read.csv("CESDCOGN.csv") ; A3 ;rownames(A3) = A3[,1] ; A3 = A3[,-1]
+   COGNITION   GROUP.1   GROUP.2   GROUP.3
+1       MMSE -0.046246 -0.022637  0.024168
+2     CVLTCA -0.174388 -0.029135 -0.151409
+3     CVLFRL -0.136369 -0.055050 -0.166118
+4        BVR  0.095224  0.029029  0.087854
+5      ATTEN -0.075534 -0.054934 -0.018052
+6         FW -0.130623 -0.140475  0.029708
+7        DSF -0.011030 -0.054827  0.001394
+8        DSB -0.014873 -0.065448 -0.040729
+9        CDT -0.019760 -0.042125 -0.139707
+10      TATS  0.070830 -0.008331 -0.040250
+11      TBTS  0.131238 -0.022180  0.023534
+12        CR -0.701705 -0.049907  0.163053
+13       IDP -0.035598  0.005969 -0.027112
+> summary.data.frame(A1)
+    GROUP.1          GROUP.2          GROUP.3      
+ Min.   :0.5335   Min.   :0.5757   Min.   :0.6784  
+ 1st Qu.:0.5400   1st Qu.:0.5791   1st Qu.:0.6836  
+ Median :0.5432   Median :0.5812   Median :0.6873  
+ Mean   :0.5421   Mean   :0.5857   Mean   :0.6898  
+ 3rd Qu.:0.5455   3rd Qu.:0.5820   3rd Qu.:0.6931  
+ Max.   :0.5461   Max.   :0.6124   Max.   :0.7165  
+> summary.data.frame(A2)
+    GROUP.1             GROUP.2             GROUP.3        
+ Min.   :-0.368912   Min.   :   -0.210   Min.   :-0.16433  
+ 1st Qu.:-0.037326   1st Qu.:   -0.096   1st Qu.:-0.05052  
+ Median : 0.005144   Median :   -0.040   Median :-0.01046  
+ Mean   :-0.034852   Mean   : 1809.924   Mean   :-0.02174  
+ 3rd Qu.: 0.020718   3rd Qu.:    0.049   3rd Qu.: 0.01004  
+ Max.   : 0.036062   Max.   :23529.500   Max.   : 0.09290  
+> summary.data.frame(A3)
+    GROUP.1            GROUP.2            GROUP.3        
+ Min.   :-0.70171   Min.   :-0.14047   Min.   :-0.16612  
+ 1st Qu.:-0.13062   1st Qu.:-0.05493   1st Qu.:-0.04073  
+ Median :-0.03560   Median :-0.04213   Median :-0.01805  
+ Mean   :-0.08068   Mean   :-0.03923   Mean   :-0.01951  
+ 3rd Qu.:-0.01103   3rd Qu.:-0.02218   3rd Qu.: 0.02417  
+ Max.   : 0.13124   Max.   : 0.02903   Max.   : 0.16305  
+> summary(data1)
+Error: object 'data1' not found
+> data1  <- as.matrix(A1)
+> data2  <- as.matrix(A2)
+> data3  <- as.matrix(A3)
+> summary(data1)
+    GROUP.1          GROUP.2          GROUP.3      
+ Min.   :0.5335   Min.   :0.5757   Min.   :0.6784  
+ 1st Qu.:0.5400   1st Qu.:0.5791   1st Qu.:0.6836  
+ Median :0.5432   Median :0.5812   Median :0.6873  
+ Mean   :0.5421   Mean   :0.5857   Mean   :0.6898  
+ 3rd Qu.:0.5455   3rd Qu.:0.5820   3rd Qu.:0.6931  
+ Max.   :0.5461   Max.   :0.6124   Max.   :0.7165  
+> summary(data2)
+    GROUP.1             GROUP.2             GROUP.3        
+ Min.   :-0.368912   Min.   :   -0.210   Min.   :-0.16433  
+ 1st Qu.:-0.037326   1st Qu.:   -0.096   1st Qu.:-0.05052  
+ Median : 0.005144   Median :   -0.040   Median :-0.01046  
+ Mean   :-0.034852   Mean   : 1809.924   Mean   :-0.02174  
+ 3rd Qu.: 0.020718   3rd Qu.:    0.049   3rd Qu.: 0.01004  
+ Max.   : 0.036062   Max.   :23529.500   Max.   : 0.09290  
+> summary(data3)
+    GROUP.1            GROUP.2            GROUP.3        
+ Min.   :-0.70171   Min.   :-0.14047   Min.   :-0.16612  
+ 1st Qu.:-0.13062   1st Qu.:-0.05493   1st Qu.:-0.04073  
+ Median :-0.03560   Median :-0.04213   Median :-0.01805  
+ Mean   :-0.08068   Mean   :-0.03923   Mean   :-0.01951  
+ 3rd Qu.:-0.01103   3rd Qu.:-0.02218   3rd Qu.: 0.02417  
+ Max.   : 0.13124   Max.   : 0.02903   Max.   : 0.16305  
+> heatmap.2(data1, Rowv = NA, dendrogram="both" , col=bluered, 
++ margins = c(15, 10))
+Warning message:
+In heatmap.2(data1, Rowv = NA, dendrogram = "both", col = bluered,  :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(data2, Rowv = NA, dendrogram="both" , col=bluered, 
++ margins = c(15, 10))
+Warning message:
+In heatmap.2(data2, Rowv = NA, dendrogram = "both", col = bluered,  :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(data3, Rowv = NA, dendrogram="both" , col=bluered, 
++ margins = c(15, 10))
+Warning message:
+In heatmap.2(data3, Rowv = NA, dendrogram = "both", col = bluered,  :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> 

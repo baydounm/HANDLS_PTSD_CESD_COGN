@@ -1,0 +1,374 @@
+{smcl}
+{com}{sf}{ul off}{txt}
+{com}. 
+. 
+. //STEP 26A: HEATMAP// 
+. 
+. use HEATMAP_DATA, clear
+{txt}
+{com}. 
+. **COLLAPSE MEAN ESTIMATES AND VARIANCES**
+. collapse (mean)  de_zptsd_est ie_zptsd_est te_zptsd_est percent_mediated_zptsd var_de_zptsd var_ie_zptsd var_te_zptsd sd_roi te_ptsd_st ie_ptsd_st de_ptsd_st, by(id)
+{res}{txt}
+{com}. 
+. save HEATMAP_DATA_collapsed, replace
+{txt}{p 0 4 2}
+(file {bf}
+HEATMAP_DATA_collapsed.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsed.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. 
+. **GET ROI LABELS AND MERGE THEM WITH COLLAPSED FILE**
+. 
+. use HEATMAP_DATA, clear
+{txt}
+{com}. keep if imputation==1
+{txt}(52 observations deleted)
+
+{com}. keep id roi
+{txt}
+{com}. save ROI_LABELS_ID, replace
+{txt}{p 0 4 2}
+(file {bf}
+ROI_LABELS_ID.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+ROI_LABELS_ID.dta{rm}
+saved
+{p_end}
+
+{com}. sort id
+{txt}
+{com}. save, replace
+{txt}{p 0 4 2}
+file {bf}
+ROI_LABELS_ID.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. use HEATMAP_DATA_collapsed
+{txt}
+{com}. sort id
+{txt}
+{com}. save, replace
+{txt}{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsed.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. use  ROI_LABELS_ID,clear
+{txt}
+{com}. merge id using HEATMAP_DATA_collapsed
+{txt}{p}
+(you are using old
+{bf:merge} syntax; see
+{bf:{help merge:[D] merge}} for new syntax)
+{p_end}
+
+{com}. save HEATMAP_DATA_collapsedfin, replace
+{txt}{p 0 4 2}
+(file {bf}
+HEATMAP_DATA_collapsedfin.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsedfin.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. ****GENERATE STANDARD ERRORS FROM VARIANCES****
+. su var_de_zptsd var_ie_zptsd var_te_zptsd
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+var_de_zptsd {c |}{res}         13    .0010594    .0001415   .0008185   .0012972
+{txt}var_ie_zptsd {c |}{res}         13    .0004289    .0000615   .0003229   .0005413
+{txt}var_te_zptsd {c |}{res}         13    .0006334    .0000825    .000493   .0007561
+{txt}
+{com}. 
+. foreach x of varlist var_de_zptsd var_ie_zptsd var_te_zptsd {c -(}
+{txt}  2{com}.         gen se`x'=sqrt(`x')
+{txt}  3{com}. {c )-}
+{txt}
+{com}. 
+. capture rename sevar* se*
+{txt}
+{com}. 
+. save, replace
+{txt}{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsedfin.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. ****GENERATE Z-SCORE*****
+. **z_de_zptsd z_ie_zptsd z_te_zptsd se_de_zptsd se_ie_zptsd se_te_zptsd
+. 
+. gen z_de_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. gen z_ie_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. gen z_te_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. 
+. replace z_de_ptsd=de_zptsd_est/se_de_zptsd
+{txt}(13 real changes made)
+
+{com}. replace z_ie_ptsd=ie_zptsd_est/se_ie_zptsd
+{txt}(13 real changes made)
+
+{com}. replace z_te_ptsd=te_zptsd_est/se_te_zptsd
+{txt}(13 real changes made)
+
+{com}. 
+. ************GENERATE P-VALUES*******************
+. 
+. gen p_de_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. gen p_ie_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. gen p_te_ptsd =.
+{txt}(13 missing values generated)
+
+{com}. 
+. replace p_de_ptsd=2*normal(-abs(z_de_ptsd))
+{txt}(13 real changes made)
+
+{com}. replace p_ie_ptsd=2*normal(-abs(z_ie_ptsd))
+{txt}(13 real changes made)
+
+{com}. replace p_te_ptsd=2*normal(-abs(z_te_ptsd))
+{txt}(13 real changes made)
+
+{com}. 
+. save, replace
+{txt}{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsedfin.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. 
+. 
+. 
+. ***************************HEATMAP*******************************
+. 
+. tab1 roi te_ptsd_st p_te_ptsd ie_ptsd_st p_ie_ptsd de_ptsd_st p_de_ptsd percent_mediated_zptsd
+
+{res}-> tabulation of roi  
+
+              {txt}ROI {c |}      Freq.     Percent        Cum.
+{hline 18}{c +}{hline 35}
+       zAttention {c |}{res}          1        7.69        7.69
+{txt}          zBVRtot {c |}{res}          1        7.69       15.38
+{txt}          zCVLfrl {c |}{res}          1        7.69       23.08
+{txt}          zCrdRot {c |}{res}          1        7.69       30.77
+{txt}    zDigitSpanBck {c |}{res}          1        7.69       38.46
+{txt}    zDigitSpanFwd {c |}{res}          1        7.69       46.15
+{txt}     zFluencyWord {c |}{res}          1        7.69       53.85
+{txt}zLnTrailsAtestSec {c |}{res}          1        7.69       61.54
+{txt}zLnTrailsBtestSec {c |}{res}          1        7.69       69.23
+{txt}      zMMStotnorm {c |}{res}          1        7.69       76.92
+{txt}   zclock_command {c |}{res}          1        7.69       84.62
+{txt}          zcvltca {c |}{res}          1        7.69       92.31
+{txt}     zidentpictot {c |}{res}          1        7.69      100.00
+{txt}{hline 18}{c +}{hline 35}
+            Total {c |}{res}         13      100.00
+
+-> tabulation of te_ptsd_st  
+
+     {txt}(mean) {c |}
+ te_ptsd_st {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+  -.1073405 {c |}{res}          1        7.69        7.69
+{txt}  -.1005517 {c |}{res}          1        7.69       15.38
+{txt}  -.0839802 {c |}{res}          1        7.69       23.08
+{txt}  -.0828444 {c |}{res}          1        7.69       30.77
+{txt}  -.0677161 {c |}{res}          1        7.69       38.46
+{txt}  -.0599522 {c |}{res}          1        7.69       46.15
+{txt}  -.0476881 {c |}{res}          1        7.69       53.85
+{txt}  -.0372573 {c |}{res}          1        7.69       61.54
+{txt}  -.0279654 {c |}{res}          1        7.69       69.23
+{txt}   -.011669 {c |}{res}          1        7.69       76.92
+{txt}   .0378332 {c |}{res}          1        7.69       84.62
+{txt}   .0698299 {c |}{res}          1        7.69       92.31
+{txt}   .0970696 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of p_te_ptsd  
+
+  {txt}p_te_ptsd {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   .0000298 {c |}{res}          1        7.69        7.69
+{txt}   .0000473 {c |}{res}          1        7.69       15.38
+{txt}   .0001325 {c |}{res}          1        7.69       23.08
+{txt}   .0015567 {c |}{res}          1        7.69       30.77
+{txt}   .0021907 {c |}{res}          1        7.69       38.46
+{txt}   .0023557 {c |}{res}          1        7.69       46.15
+{txt}   .0036659 {c |}{res}          1        7.69       53.85
+{txt}   .0292393 {c |}{res}          1        7.69       61.54
+{txt}   .0618474 {c |}{res}          1        7.69       69.23
+{txt}   .0933631 {c |}{res}          1        7.69       76.92
+{txt}   .1307818 {c |}{res}          1        7.69       84.62
+{txt}   .2405503 {c |}{res}          1        7.69       92.31
+{txt}   .6625539 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of ie_ptsd_st  
+
+     {txt}(mean) {c |}
+ ie_ptsd_st {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+  -.0762534 {c |}{res}          1        7.69        7.69
+{txt}  -.0678589 {c |}{res}          1        7.69       15.38
+{txt}   -.043325 {c |}{res}          1        7.69       23.08
+{txt}  -.0351462 {c |}{res}          1        7.69       30.77
+{txt}  -.0302791 {c |}{res}          1        7.69       38.46
+{txt}  -.0140157 {c |}{res}          1        7.69       46.15
+{txt}  -.0139798 {c |}{res}          1        7.69       53.85
+{txt}  -.0118168 {c |}{res}          1        7.69       61.54
+{txt}  -.0085511 {c |}{res}          1        7.69       69.23
+{txt}  -.0073889 {c |}{res}          1        7.69       76.92
+{txt}   .0099143 {c |}{res}          1        7.69       84.62
+{txt}   .0304278 {c |}{res}          1        7.69       92.31
+{txt}    .031405 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of p_ie_ptsd  
+
+  {txt}p_ie_ptsd {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   .0003653 {c |}{res}          1        7.69        7.69
+{txt}   .0020622 {c |}{res}          1        7.69       15.38
+{txt}   .0372133 {c |}{res}          1        7.69       23.08
+{txt}   .1060148 {c |}{res}          1        7.69       30.77
+{txt}   .1097368 {c |}{res}          1        7.69       38.46
+{txt}   .1293954 {c |}{res}          1        7.69       46.15
+{txt}   .1697787 {c |}{res}          1        7.69       53.85
+{txt}   .4714397 {c |}{res}          1        7.69       61.54
+{txt}   .4725617 {c |}{res}          1        7.69       69.23
+{txt}   .5107962 {c |}{res}          1        7.69       76.92
+{txt}   .6290565 {c |}{res}          1        7.69       84.62
+{txt}   .6706777 {c |}{res}          1        7.69       92.31
+{txt}   .7507875 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of de_ptsd_st  
+
+     {txt}(mean) {c |}
+ de_ptsd_st {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+  -.0920007 {c |}{res}          1        7.69        7.69
+{txt}  -.0537364 {c |}{res}          1        7.69       15.38
+{txt}  -.0525633 {c |}{res}          1        7.69       23.08
+{txt}  -.0476982 {c |}{res}          1        7.69       30.77
+{txt}  -.0310871 {c |}{res}          1        7.69       38.46
+{txt}  -.0254405 {c |}{res}          1        7.69       46.15
+{txt}  -.0161214 {c |}{res}          1        7.69       53.85
+{txt}  -.0139496 {c |}{res}          1        7.69       61.54
+{txt}  -.0043631 {c |}{res}          1        7.69       69.23
+{txt}   .0186101 {c |}{res}          1        7.69       76.92
+{txt}    .027919 {c |}{res}          1        7.69       84.62
+{txt}   .0394021 {c |}{res}          1        7.69       92.31
+{txt}   .0656646 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of p_de_ptsd  
+
+  {txt}p_de_ptsd {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+     .00388 {c |}{res}          1        7.69        7.69
+{txt}   .0448914 {c |}{res}          1        7.69       15.38
+{txt}   .0766876 {c |}{res}          1        7.69       23.08
+{txt}   .1444581 {c |}{res}          1        7.69       30.77
+{txt}   .1706158 {c |}{res}          1        7.69       38.46
+{txt}   .1840031 {c |}{res}          1        7.69       46.15
+{txt}   .3496154 {c |}{res}          1        7.69       53.85
+{txt}   .3738659 {c |}{res}          1        7.69       61.54
+{txt}   .3884424 {c |}{res}          1        7.69       69.23
+{txt}   .5909982 {c |}{res}          1        7.69       76.92
+{txt}   .6385717 {c |}{res}          1        7.69       84.62
+{txt}   .6501864 {c |}{res}          1        7.69       92.31
+{txt}   .8944083 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+
+-> tabulation of percent_mediated_zptsd  
+
+     {txt}(mean) {c |}
+percent_med {c |}
+iated_zptsd {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+    8.50236 {c |}{res}          1        7.69        7.69
+{txt}   12.32399 {c |}{res}          1        7.69       15.38
+{txt}    20.6382 {c |}{res}          1        7.69       23.08
+{txt}   26.19171 {c |}{res}          1        7.69       30.77
+{txt}    31.8084 {c |}{res}          1        7.69       38.46
+{txt}   32.36537 {c |}{res}          1        7.69       46.15
+{txt}    42.4199 {c |}{res}          1        7.69       53.85
+{txt}   43.59905 {c |}{res}          1        7.69       61.54
+{txt}   50.16965 {c |}{res}          1        7.69       69.23
+{txt}   71.03996 {c |}{res}          1        7.69       76.92
+{txt}   80.80219 {c |}{res}          1        7.69       84.62
+{txt}   90.89546 {c |}{res}          1        7.69       92.31
+{txt}   262.3503 {c |}{res}          1        7.69      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         13      100.00
+{txt}
+{com}. 
+. sort id
+{txt}
+{com}. 
+. 
+. list roi te_ptsd_st p_te_ptsd ie_ptsd_st p_ie_ptsd de_ptsd_st p_de_ptsd percent_mediated_zptsd
+{txt}
+     {c TLC}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c TRC}
+     {c |} {res}              roi   te_pts~t   p_te_p~d   ie_pts~t   p_ie_p~d   de_pts~t   p_de_p~d   percen~d {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  1. {c |} {res}      zMMStotnorm   -.037257   .0933631   -.011817   .5107962    -.02544   .3738659    31.8084 {txt}{c |}
+  2. {c |} {res}          zcvltca   -.107341   .0000298   -.076253   .0003653   -.031087   .3496154      71.04 {txt}{c |}
+  3. {c |} {res}          zCVLfrl    -.08398   .0015567   -.067859   .0020622   -.016121   .6385717    80.8022 {txt}{c |}
+  4. {c |} {res}          zBVRtot     .09707   .0001325    .031405   .1293954    .065665   .0448914    32.3654 {txt}{c |}
+  5. {c |} {res}       zAttention   -.011669   .6625539   -.030279   .1697787     .01861   .5909982     262.35 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  6. {c |} {res}     zFluencyWord   -.047688   .0618474   -.043325   .0372133   -.004363   .8944083    90.8955 {txt}{c |}
+  7. {c |} {res}    zDigitSpanFwd   -.100552   .0000473   -.008551   .6706777   -.092001     .00388    8.50236 {txt}{c |}
+  8. {c |} {res}    zDigitSpanBck   -.027965   .2405503   -.014016   .4714397    -.01395   .6501864    50.1696 {txt}{c |}
+  9. {c |} {res}   zclock_command   -.082844   .0021907   -.035146   .1097368   -.047698   .1706158    42.4199 {txt}{c |}
+ 10. {c |} {res}zLnTrailsAtestSec    .037833   .1307818    .009914   .6290565    .027919   .3884424    26.1917 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+ 11. {c |} {res}zLnTrailsBtestSec     .06983   .0023557    .030428   .1060148    .039402   .1840031     43.599 {txt}{c |}
+ 12. {c |} {res}          zCrdRot   -.059952   .0292393   -.007389   .7507875   -.052563   .1444581     12.324 {txt}{c |}
+ 13. {c |} {res}     zidentpictot   -.067716   .0036659    -.01398   .4725617   -.053736   .0766876    20.6382 {txt}{c |}
+     {c BLC}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c BRC}
+
+{com}. 
+. capture log close
+{smcl}
+{com}{sf}{ul off}

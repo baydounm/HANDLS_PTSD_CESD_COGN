@@ -1,0 +1,29 @@
+{smcl}
+{com}{sf}{ul off}{txt}
+{com}. 
+. list roi g1_ptsdcogn_est p_g1_ptsdcogn_est g2_ptsdcogn_est p_g2_ptsdcogn_est g3_ptsdcogn_est p_g3_ptsdcogn_est
+{txt}
+     {c TLC}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c TRC}
+     {c |} {res}              roi   g1_pts~t   p_g1_p~t   g2_pts~t   p_g2_p~t   g3_pts~t   p_g3_p~t {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  1. {c |} {res}      zMMStotnorm    .030055   .4706306   -.066522   .2564068   -.072644   .1800102 {txt}{c |}
+  2. {c |} {res}          zcvltca    .036062    .493228   -.136841     .02408   -.050517   .4040032 {txt}{c |}
+  3. {c |} {res}          zCVLfrl    .005144   .9215474   -.058758   .3680106    .010037   .8753572 {txt}{c |}
+  4. {c |} {res}          zBVRtot    .032738   .4840088      .1127   .0725936    .047734   .4701603 {txt}{c |}
+  5. {c |} {res}       zAttention    .020718   .6869174    .049165   .4616779   -.023687   .7252089 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  6. {c |} {res}     zFluencyWord    .008905   .8570129   -.023813   .7040352    -.00369   .9524411 {txt}{c |}
+  7. {c |} {res}    zDigitSpanFwd   -.067071   .1766742   -.096393   .0850349   -.103071   .0904221 {txt}{c |}
+  8. {c |} {res}    zDigitSpanBck   -.037326   .4121405    .029587   .6355095    .010421   .8584897 {txt}{c |}
+  9. {c |} {res}   zclock_command   -.013281   .7861878   -.119107   .0962968   -.016624   .8071868 {txt}{c |}
+ 10. {c |} {res}zLnTrailsAtestSec   -.022764   .6296218    .065691   .2754755    .092897   .1657943 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+ 11. {c |} {res}zLnTrailsBtestSec    .015989   .6996861    23529.5          0    .001321   .9819764 {txt}{c |}
+ 12. {c |} {res}          zCrdRot   -.368912   .2405851   -.209769   .5723287   -.164327   .6613686 {txt}{c |}
+ 13. {c |} {res}     zidentpictot   -.093334   .0823304   -.040183   .5614116   -.010458   .8807139 {txt}{c |}
+     {c BLC}{hline 19}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c BRC}
+
+{com}. 
+. capture log close
+{smcl}
+{com}{sf}{ul off}

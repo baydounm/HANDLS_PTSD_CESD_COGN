@@ -1,0 +1,79 @@
+R version 4.3.1 (2023-06-16) -- "Beagle Scouts"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd ("/Users/georgescum2/Documents/HEATMAP_DATA")
+> require(graphics)
+> require(grDevices)
+> if(!require('gplots')) {
++     install.packages('gplots')
++     library('gplots')
++ }
+Loading required package: gplots
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+> 
+> A1 <- read.csv("consistent.csv") ; A1 ;rownames(A1) = A1[,1] ; A1 = A1[,-1]
+   COGNITION    DIRECT  INDIRECT     TOTAL
+1       MMSE -0.025440 -0.011817 -0.037257
+2     CVLTCA -0.031087 -0.076253 -0.107341
+3     CVLFRL -0.016121 -0.067859 -0.083980
+4        BVR  0.065665  0.031405  0.097070
+5      ATTEN  0.018610 -0.030279 -0.011669
+6         FW -0.004363 -0.043325 -0.047688
+7        DSF -0.092001 -0.008551 -0.100552
+8        DSB -0.013950 -0.014016 -0.027965
+9        CDT -0.047698 -0.035146 -0.082844
+10      TATS  0.027919  0.009914  0.037833
+11      TBTS  0.039402  0.030428  0.069830
+12        CR -0.052563 -0.007389 -0.059952
+13       IDP -0.053736 -0.013980 -0.067716
+> 
+> 
+> summary.data.frame(A1)
+     DIRECT            INDIRECT             TOTAL         
+ Min.   :-0.09200   Min.   :-0.076253   Min.   :-0.10734  
+ 1st Qu.:-0.04770   1st Qu.:-0.035146   1st Qu.:-0.08284  
+ Median :-0.01612   Median :-0.013980   Median :-0.04769  
+ Mean   :-0.01426   Mean   :-0.018221   Mean   :-0.03248  
+ 3rd Qu.: 0.01861   3rd Qu.:-0.007389   3rd Qu.:-0.01167  
+ Max.   : 0.06567   Max.   : 0.031405   Max.   : 0.09707  
+> 
+> 
+> data1  <- as.matrix(A1)
+> summary(data1)
+     DIRECT            INDIRECT             TOTAL         
+ Min.   :-0.09200   Min.   :-0.076253   Min.   :-0.10734  
+ 1st Qu.:-0.04770   1st Qu.:-0.035146   1st Qu.:-0.08284  
+ Median :-0.01612   Median :-0.013980   Median :-0.04769  
+ Mean   :-0.01426   Mean   :-0.018221   Mean   :-0.03248  
+ 3rd Qu.: 0.01861   3rd Qu.:-0.007389   3rd Qu.:-0.01167  
+ Max.   : 0.06567   Max.   : 0.031405   Max.   : 0.09707  
+> 
+> 
+> 
+> heatmap.2(data1, Rowv = NA, dendrogram="both" , col=bluered, 
++           margins = c(15, 10))
+Warning message:
+In heatmap.2(data1, Rowv = NA, dendrogram = "both", col = bluered,  :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> 

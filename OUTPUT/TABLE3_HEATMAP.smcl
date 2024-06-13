@@ -1,0 +1,46 @@
+{smcl}
+{com}{sf}{ul off}{txt}
+{com}. 
+. use HEATMAP_DATA_collapsedfin,clear
+{txt}
+{com}. 
+. list roi sd_roi de_zptsd_est ie_zptsd_est te_zptsd_est se_de_zptsd se_ie_zptsd se_te_zptsd p_de_ptsd p_ie_ptsd p_te_ptsd percent_mediated_zptsd
+{txt}
+     {c TLC}{hline 19}{c -}{hline 8}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c TRC}
+     {c |} {res}              roi   sd_roi   de_zpt~t   ie_zpt~t   te_zpt~t   se_de_~d   se_ie_~d   se_te_~d   p_de_p~d   p_ie_p~d   p_te_p~d   percen~d {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 8}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  1. {c |} {res}      zMMStotnorm        1    -.02544   -.011817   -.037257   .0286087   .0179697   .0222045   .3738659   .5107962   .0933631    31.8084 {txt}{c |}
+  2. {c |} {res}          zcvltca        1   -.031087   -.076253   -.107341   .0332363   .0213958   .0257125   .3496154   .0003653   .0000298      71.04 {txt}{c |}
+  3. {c |} {res}          zCVLfrl        1   -.016121   -.067859    -.08398    .034323   .0220241   .0265433   .6385717   .0020622   .0015567    80.8022 {txt}{c |}
+  4. {c |} {res}          zBVRtot        1    .065665    .031405     .09707   .0327395    .020709   .0253986   .0448914   .1293954   .0001325    32.3654 {txt}{c |}
+  5. {c |} {res}       zAttention        1     .01861   -.030279   -.011669   .0346305   .0220546   .0267399   .5909982   .1697787   .6625539     262.35 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 8}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+  6. {c |} {res}     zFluencyWord        1   -.004363   -.043325   -.047688   .0328727   .0207952   .0255373   .8944083   .0372133   .0618474    90.8955 {txt}{c |}
+  7. {c |} {res}    zDigitSpanFwd        1   -.092001   -.008551   -.100552   .0318589   .0201098   .0247132     .00388   .6706777   .0000473    8.50236 {txt}{c |}
+  8. {c |} {res}    zDigitSpanBck        1    -.01395   -.014016   -.027965   .0307597   .0194625   .0238284   .6501864   .4714397   .2405503    50.1696 {txt}{c |}
+  9. {c |} {res}   zclock_command        1   -.047698   -.035146   -.082844   .0348104   .0219749   .0270461   .1706158   .1097368   .0021907    42.4199 {txt}{c |}
+ 10. {c |} {res}zLnTrailsAtestSec        1    .027919    .009914    .037833   .0323719   .0205241   .0250381   .3884424   .6290565   .1307818    26.1917 {txt}{c |}
+     {c LT}{hline 19}{c -}{hline 8}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c RT}
+ 11. {c |} {res}zLnTrailsBtestSec        1    .039402    .030428     .06983   .0296584   .0188248   .0229607   .1840031   .1060148   .0023557     43.599 {txt}{c |}
+ 12. {c |} {res}          zCrdRot        1   -.052563   -.007389   -.059952   .0360173   .0232648   .0274979   .1444581   .7507875   .0292393     12.324 {txt}{c |}
+ 13. {c |} {res}     zidentpictot        1   -.053736    -.01398   -.067716   .0303555   .0194618   .0233057   .0766876   .4725617   .0036659    20.6382 {txt}{c |}
+     {c BLC}{hline 19}{c -}{hline 8}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c -}{hline 10}{c BRC}
+
+{com}. 
+.      
+. save, replace
+{txt}{p 0 4 2}
+file {bf}
+HEATMAP_DATA_collapsedfin.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\baydounm\AppData\Local\Temp\STD3060_000000.tmp"
+{txt}
+{com}. 
+. capture log close
+{smcl}
+{com}{sf}{ul off}

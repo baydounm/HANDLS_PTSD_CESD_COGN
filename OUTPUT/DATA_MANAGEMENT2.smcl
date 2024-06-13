@@ -1,0 +1,547 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}E:\16GBBACKUPUSB\BACKUP_USB_SEPTEMBER2014\May Baydoun_folder\HANDLS_PAPER67_PTSD_COGN\OUTPUT\DATA_MANAGEMENT2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}12 Jun 2024, 15:56:01
+{txt}
+{com}. 
+. //STEP 24: CENTER CONTINUOUS VARIABLES AND LOG TRANSFORM TRAILS//
+. 
+. use finaldata_imputed_FINAL,clear
+{txt}
+{com}. 
+. 
+. **Continuous exposures and covariates**
+. 
+. capture drop cesvar acasiPTSDvar
+{txt}
+{com}. foreach x of varlist CES acasiPTSD {c -(}
+{txt}  2{com}. gen Ln`x'=ln(`x')       
+{txt}  3{com}. {c )-}
+{txt}(6,402 missing values generated)
+(10,272 missing values generated)
+
+{com}. 
+. su CES if sample_final==1 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}CES {c |}{res}      8,604    14.73082    11.35412          0         59
+{txt}
+{com}. su acasiPTSD if sample_final==1 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}      8,604    12.45537    12.65832          0         65
+{txt}
+{com}. su invmills* if sample_final==1 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+invmillsfi~l {c |}{res}      8,604     -.22314    9.367619  -209.8163   133.7968
+{txt}
+{com}. 
+. ******Dietary exposures and covariates******
+. 
+. capture drop hei2010_total_scorecent43
+{txt}
+{com}. gen hei2010_total_scorecent43=hei2010_total_score-43
+{txt}(1,543 missing values generated)
+
+{com}. 
+. 
+. ******Other covariates*******
+. 
+. capture drop BMIcent30
+{txt}
+{com}. gen BMIcent30=BMI-30
+{txt}(867 missing values generated)
+
+{com}. 
+. su BMIcent30 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}BMIcent30 {c |}{res}     21,453    .0084949    7.965251  -27.82102     40.069
+{txt}
+{com}. 
+. capture drop Agecent48
+{txt}
+{com}. gen Agecent48=Age-48
+{txt}
+{com}. 
+. su Agecent48 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}Agecent48 {c |}{res}     22,320    .2100269    9.347021      -18.8       17.9
+{txt}
+{com}. 
+. **Categorical covariates:
+. tab1 edubr currdrugs smokebr SRH dxHTN dxDiabetes CVhighChol cvdbr 
+
+{res}-> tabulation of edubr  
+
+      {txt}edubr {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      1,585        7.12        7.12
+{txt}          2 {c |}{res}     13,662       61.41       68.54
+{txt}          3 {c |}{res}      6,999       31.46      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     22,246      100.00
+
+-> tabulation of currdrugs  
+
+  {txt}currdrugs {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}     16,999       80.58       80.58
+{txt}          1 {c |}{res}      4,098       19.42      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,097      100.00
+
+-> tabulation of smokebr  
+
+    {txt}smokebr {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}     10,581       49.95       49.95
+{txt}          1 {c |}{res}     10,604       50.05      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,185      100.00
+
+-> tabulation of SRH  
+
+        {txt}SRH {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      6,092       27.30       27.30
+{txt}          2 {c |}{res}      8,992       40.29       67.59
+{txt}          3 {c |}{res}      7,233       32.41      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     22,317      100.00
+
+-> tabulation of dxHTN  
+
+      {txt}dxHTN {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         No {c |}{res}     11,474       53.74       53.74
+{txt}        Yes {c |}{res}      9,876       46.26      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,350      100.00
+
+-> tabulation of dxDiabetes  
+
+ {txt}dxDiabetes {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       NoDx {c |}{res}     13,795       64.60       64.60
+{txt}preDiabetes {c |}{res}      3,825       17.91       82.51
+{txt}   Diabetes {c |}{res}      3,736       17.49      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,356      100.00
+
+-> tabulation of CVhighChol  
+
+ {txt}CVhighChol {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         No {c |}{res}     15,505       73.49       73.49
+{txt}        Yes {c |}{res}      5,592       26.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,097      100.00
+
+-> tabulation of cvdbr  
+
+      {txt}cvdbr {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}     17,210       81.55       81.55
+{txt}          1 {c |}{res}      3,893       18.45      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     21,103      100.00
+{txt}
+{com}. 
+. **Outcome variables**
+. su acasiPTSD*
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}     13,488    12.34786    12.69522          0         65
+{txt}
+{com}. 
+. save finaldata_imputed_FINAL,replace
+{txt}{p 0 4 2}
+file {bf}
+finaldata_imputed_FINAL.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. **Final sample selectivity**
+. capture drop sample_final_part
+{txt}
+{com}. gen sample_final_part=sample_final
+{txt}
+{com}. 
+. mi estimate: logistic sample_final_part Age0 Sex PovStat Race 
+{res}
+{txt}Multiple-imputation estimates{col 49}Imputations{col 67}= {res}         5
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     3,720
+{txt}{col 49}Average RVI{col 67}= {res}    0.0000
+{txt}{col 49}Largest FMI{col 67}= {res}    0.0000
+{txt}DF adjustment:{ralign 15: {res:Large sample}}{col 49}{help mi_missingdf##|_new:DF}:     min{col 67}= {res}         .
+{txt}{col 49}        avg{col 67}= {res}         .
+{txt}{col 49}        max{col 67}= {res}         .
+{txt}Model F test:{ralign 16: {res:Equal FMI}}{col 49}{help mi_missingdf##|_new:F(   4,      .)}{col 67}= {res}     16.10
+{txt}Within VCE type: {ralign 12:{res:OIM}}{col 49}Prob > F{col 67}= {res}    0.0000
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}sample_final_part{col 19}{c |} Coefficient{col 31}  Std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 13}Age0 {c |}{col 19}{res}{space 2}-.0157197{col 31}{space 2} .0036414{col 42}{space 1}   -4.32{col 51}{space 3}0.000{col 59}{space 4}-.0228566{col 72}{space 3}-.0085827
+{txt}{space 14}Sex {c |}{col 19}{res}{space 2}-.1270714{col 31}{space 2}  .068454{col 42}{space 1}   -1.86{col 51}{space 3}0.063{col 59}{space 4}-.2612389{col 72}{space 3}  .007096
+{txt}{space 10}PovStat {c |}{col 19}{res}{space 2} .0768809{col 31}{space 2} .0699755{col 42}{space 1}    1.10{col 51}{space 3}0.272{col 59}{space 4}-.0602686{col 72}{space 3} .2140304
+{txt}{space 13}Race {c |}{col 19}{res}{space 2}-.4563781{col 31}{space 2} .0694808{col 42}{space 1}   -6.57{col 51}{space 3}0.000{col 59}{space 4} -.592558{col 72}{space 3}-.3201983
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 1.085351{col 31}{space 2} .2507398{col 42}{space 1}    4.33{col 51}{space 3}0.000{col 59}{space 4} .5939098{col 72}{space 3} 1.576792
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. mi estimate: logistic sample_final_part Age0  
+{res}
+{txt}Multiple-imputation estimates{col 49}Imputations{col 67}= {res}         5
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     3,720
+{txt}{col 49}Average RVI{col 67}= {res}    0.0000
+{txt}{col 49}Largest FMI{col 67}= {res}    0.0000
+{txt}DF adjustment:{ralign 15: {res:Large sample}}{col 49}{help mi_missingdf##|_new:DF}:     min{col 67}= {res}  3.36e+61
+{txt}{col 49}        avg{col 67}= {res}  3.36e+61
+{txt}{col 49}        max{col 67}= {res}         .
+{txt}Model F test:{ralign 16: {res:Equal FMI}}{col 49}F({res}   1{txt},{res} 3.4e+61{txt}){col 67}= {res}     18.39
+{txt}Within VCE type: {ralign 12:{res:OIM}}{col 49}Prob > F{col 67}= {res}    0.0000
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}sample_final_part{col 19}{c |} Coefficient{col 31}  Std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 13}Age0 {c |}{col 19}{res}{space 2}-.0155073{col 31}{space 2} .0036163{col 42}{space 1}   -4.29{col 51}{space 3}0.000{col 59}{space 4}-.0225952{col 72}{space 3}-.0084194
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} .2788945{col 31}{space 2} .1765028{col 42}{space 1}    1.58{col 51}{space 3}0.114{col 59}{space 4}-.0670446{col 72}{space 3} .6248336
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. mi estimate: logistic sample_final_part Sex  
+{res}
+{txt}Multiple-imputation estimates{col 49}Imputations{col 67}= {res}         5
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     3,720
+{txt}{col 49}Average RVI{col 67}= {res}    0.0000
+{txt}{col 49}Largest FMI{col 67}= {res}    0.0000
+{txt}DF adjustment:{ralign 15: {res:Large sample}}{col 49}{help mi_missingdf##|_new:DF}:     min{col 67}= {res}         .
+{txt}{col 49}        avg{col 67}= {res}         .
+{txt}{col 49}        max{col 67}= {res}         .
+{txt}Model F test:{ralign 16: {res:Equal FMI}}{col 49}{help mi_missingdf##|_new:F(   1,      .)}{col 67}= {res}      3.47
+{txt}Within VCE type: {ralign 12:{res:OIM}}{col 49}Prob > F{col 67}= {res}    0.0624
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}sample_final_part{col 19}{c |} Coefficient{col 31}  Std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}Sex {c |}{col 19}{res}{space 2}-.1263485{col 31}{space 2} .0678059{col 42}{space 1}   -1.86{col 51}{space 3}0.062{col 59}{space 4}-.2592456{col 72}{space 3} .0065487
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.2832133{col 31}{space 2} .1036591{col 42}{space 1}   -2.73{col 51}{space 3}0.006{col 59}{space 4}-.4863814{col 72}{space 3}-.0800453
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. mi estimate: logistic sample_final_part PovStat  
+{res}
+{txt}Multiple-imputation estimates{col 49}Imputations{col 67}= {res}         5
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     3,720
+{txt}{col 49}Average RVI{col 67}= {res}    0.0000
+{txt}{col 49}Largest FMI{col 67}= {res}    0.0000
+{txt}DF adjustment:{ralign 15: {res:Large sample}}{col 49}{help mi_missingdf##|_new:DF}:     min{col 67}= {res}         .
+{txt}{col 49}        avg{col 67}= {res}         .
+{txt}{col 49}        max{col 67}= {res}         .
+{txt}Model F test:{ralign 16: {res:Equal FMI}}{col 49}{help mi_missingdf##|_new:F(   1,      .)}{col 67}= {res}      0.13
+{txt}Within VCE type: {ralign 12:{res:OIM}}{col 49}Prob > F{col 67}= {res}    0.7178
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}sample_final_part{col 19}{c |} Coefficient{col 31}  Std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}PovStat {c |}{col 19}{res}{space 2} .0247204{col 31}{space 2} .0683939{col 42}{space 1}    0.36{col 51}{space 3}0.718{col 59}{space 4}-.1093292{col 72}{space 3} .1587699
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.5012736{col 31}{space 2} .1024084{col 42}{space 1}   -4.89{col 51}{space 3}0.000{col 59}{space 4}-.7019903{col 72}{space 3}-.3005569
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. mi estimate: logistic sample_final_part Race  
+{res}
+{txt}Multiple-imputation estimates{col 49}Imputations{col 67}= {res}         5
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}     3,720
+{txt}{col 49}Average RVI{col 67}= {res}    0.0000
+{txt}{col 49}Largest FMI{col 67}= {res}    0.0000
+{txt}DF adjustment:{ralign 15: {res:Large sample}}{col 49}{help mi_missingdf##|_new:DF}:     min{col 67}= {res}         .
+{txt}{col 49}        avg{col 67}= {res}         .
+{txt}{col 49}        max{col 67}= {res}         .
+{txt}Model F test:{ralign 16: {res:Equal FMI}}{col 49}{help mi_missingdf##|_new:F(   1,      .)}{col 67}= {res}     41.53
+{txt}Within VCE type: {ralign 12:{res:OIM}}{col 49}Prob > F{col 67}= {res}    0.0000
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}sample_final_part{col 19}{c |} Coefficient{col 31}  Std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 13}Race {c |}{col 19}{res}{space 2}  -.44077{col 31}{space 2} .0683926{col 42}{space 1}   -6.44{col 51}{space 3}0.000{col 59}{space 4}-.5748171{col 72}{space 3}-.3067229
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} .2297407{col 31}{space 2} .1124723{col 42}{space 1}    2.04{col 51}{space 3}0.041{col 59}{space 4}  .009299{col 72}{space 3} .4501823
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. save finaldata_imputed_FINAL,replace
+{txt}{p 0 4 2}
+file {bf}
+finaldata_imputed_FINAL.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. 
+. //STEP 25: CREATE PTSD LOAD TERTILE//
+. use finaldata_imputed_FINAL,clear
+{txt}
+{com}. 
+. capture drop PTSDtert
+{txt}
+{com}. xtile PTSDtert=acasiPTSD,nq(3)
+{txt}
+{com}. 
+. tab PTSDtert
+
+{txt}3 quantiles {c |}
+         of {c |}
+  acasiPTSD {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}      4,584       33.99       33.99
+{txt}          2 {c |}{res}      4,716       34.96       68.95
+{txt}          3 {c |}{res}      4,188       31.05      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     13,488      100.00
+{txt}
+{com}. 
+. bysort PTSDtert: su  acasiPTSD
+
+{txt}{hline}
+-> PTSDtert = 1
+
+    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}      4,584    1.657068    1.468032          0          4
+
+{txt}{hline}
+-> PTSDtert = 2
+
+    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}      4,716    8.788804    2.912716          5         14
+
+{txt}{hline}
+-> PTSDtert = 3
+
+    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}      4,188    28.05731    10.99973         15         65
+
+{txt}{hline}
+-> PTSDtert = .
+
+    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}acasiPTSD {c |}{res}          0
+
+{txt}
+{com}. 
+. save finaldata_imputed_FINAL, replace
+{txt}{p 0 4 2}
+file {bf}
+finaldata_imputed_FINAL.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. **CREATE z-score for PTSD, CESD and all the cognitive test scores***
+. capture drop zacasiPTSD zCES zMMStotnorm zcvltca zCVLfrl zBVRtot zAttention zFluencyWord zDigitSpanFwd zDigitSpanBck zclock_command zLnTrailsAtestSec zLnTrailsBtestSec zCrdRot zidentpic
+{txt}
+{com}. foreach x of varlist acasiPTSD CES MMStotnorm cvltca CVLfrl BVRtot Attention FluencyWord DigitSpanFwd DigitSpanBck clock_command LnTrailsAtestSec LnTrailsBtestSec CrdRot identpic {c -(}
+{txt}  2{com}. 
+. mi passive: egen z`x'=std(`x') if sample_final==1
+{txt}  3{com}. 
+. {c )-}
+{res}{txt}{it:m}=0:
+(2,286 missing values generated)
+{it:m}=1:
+(2,286 missing values generated)
+{it:m}=2:
+(2,286 missing values generated)
+{it:m}=3:
+(2,286 missing values generated)
+{it:m}=4:
+(2,286 missing values generated)
+{it:m}=5:
+(2,286 missing values generated)
+{res}{txt}{it:m}=0:
+(2,286 missing values generated)
+{it:m}=1:
+(2,286 missing values generated)
+{it:m}=2:
+(2,286 missing values generated)
+{it:m}=3:
+(2,286 missing values generated)
+{it:m}=4:
+(2,286 missing values generated)
+{it:m}=5:
+(2,286 missing values generated)
+{res}{txt}{it:m}=0:
+(2,298 missing values generated)
+{it:m}=1:
+(2,298 missing values generated)
+{it:m}=2:
+(2,298 missing values generated)
+{it:m}=3:
+(2,298 missing values generated)
+{it:m}=4:
+(2,298 missing values generated)
+{it:m}=5:
+(2,298 missing values generated)
+{res}{txt}{it:m}=0:
+(2,536 missing values generated)
+{it:m}=1:
+(2,536 missing values generated)
+{it:m}=2:
+(2,536 missing values generated)
+{it:m}=3:
+(2,536 missing values generated)
+{it:m}=4:
+(2,536 missing values generated)
+{it:m}=5:
+(2,536 missing values generated)
+{res}{txt}{it:m}=0:
+(2,556 missing values generated)
+{it:m}=1:
+(2,556 missing values generated)
+{it:m}=2:
+(2,556 missing values generated)
+{it:m}=3:
+(2,556 missing values generated)
+{it:m}=4:
+(2,556 missing values generated)
+{it:m}=5:
+(2,556 missing values generated)
+{res}{txt}{it:m}=0:
+(2,289 missing values generated)
+{it:m}=1:
+(2,289 missing values generated)
+{it:m}=2:
+(2,289 missing values generated)
+{it:m}=3:
+(2,289 missing values generated)
+{it:m}=4:
+(2,289 missing values generated)
+{it:m}=5:
+(2,289 missing values generated)
+{res}{txt}{it:m}=0:
+(2,465 missing values generated)
+{it:m}=1:
+(2,465 missing values generated)
+{it:m}=2:
+(2,465 missing values generated)
+{it:m}=3:
+(2,465 missing values generated)
+{it:m}=4:
+(2,465 missing values generated)
+{it:m}=5:
+(2,465 missing values generated)
+{res}{txt}{it:m}=0:
+(2,295 missing values generated)
+{it:m}=1:
+(2,295 missing values generated)
+{it:m}=2:
+(2,295 missing values generated)
+{it:m}=3:
+(2,295 missing values generated)
+{it:m}=4:
+(2,295 missing values generated)
+{it:m}=5:
+(2,295 missing values generated)
+{res}{txt}{it:m}=0:
+(2,317 missing values generated)
+{it:m}=1:
+(2,317 missing values generated)
+{it:m}=2:
+(2,317 missing values generated)
+{it:m}=3:
+(2,317 missing values generated)
+{it:m}=4:
+(2,317 missing values generated)
+{it:m}=5:
+(2,317 missing values generated)
+{res}{txt}{it:m}=0:
+(2,326 missing values generated)
+{it:m}=1:
+(2,326 missing values generated)
+{it:m}=2:
+(2,326 missing values generated)
+{it:m}=3:
+(2,326 missing values generated)
+{it:m}=4:
+(2,326 missing values generated)
+{it:m}=5:
+(2,326 missing values generated)
+{res}{txt}{it:m}=0:
+(2,292 missing values generated)
+{it:m}=1:
+(2,292 missing values generated)
+{it:m}=2:
+(2,292 missing values generated)
+{it:m}=3:
+(2,292 missing values generated)
+{it:m}=4:
+(2,292 missing values generated)
+{it:m}=5:
+(2,292 missing values generated)
+{res}{txt}{it:m}=0:
+(2,301 missing values generated)
+{it:m}=1:
+(2,301 missing values generated)
+{it:m}=2:
+(2,301 missing values generated)
+{it:m}=3:
+(2,301 missing values generated)
+{it:m}=4:
+(2,301 missing values generated)
+{it:m}=5:
+(2,301 missing values generated)
+{res}{txt}{it:m}=0:
+(2,303 missing values generated)
+{it:m}=1:
+(2,303 missing values generated)
+{it:m}=2:
+(2,303 missing values generated)
+{it:m}=3:
+(2,303 missing values generated)
+{it:m}=4:
+(2,303 missing values generated)
+{it:m}=5:
+(2,303 missing values generated)
+{res}{txt}{it:m}=0:
+(2,598 missing values generated)
+{it:m}=1:
+(2,598 missing values generated)
+{it:m}=2:
+(2,598 missing values generated)
+{it:m}=3:
+(2,598 missing values generated)
+{it:m}=4:
+(2,598 missing values generated)
+{it:m}=5:
+(2,598 missing values generated)
+{res}{txt}{it:m}=0:
+(2,496 missing values generated)
+{it:m}=1:
+(2,496 missing values generated)
+{it:m}=2:
+(2,496 missing values generated)
+{it:m}=3:
+(2,496 missing values generated)
+{it:m}=4:
+(2,496 missing values generated)
+{it:m}=5:
+(2,496 missing values generated)
+
+{com}. 
+. *************************MAIN ANALYSIS******************
+. 
+. capture log close
+{smcl}
+{com}{sf}{ul off}
